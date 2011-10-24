@@ -1,0 +1,12 @@
+%p
+  %b= @post.title
+%p
+  = @post.content
+
+Komentarze:
+- @post.comments.each do |c|
+  %p= c.content
+
+= form_for [@post, @post.comments.new] do |f|
+  %p= f.text_area :content
+  %p= f.submit "Komentuj"
